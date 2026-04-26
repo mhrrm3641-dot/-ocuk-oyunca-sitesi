@@ -1,32 +1,22 @@
-import { db } from "@/lib/db"; // Senin veritabanı bağlantın
-import { site_settings } from "@/lib/db/src/schema/site"; // Tablo şeman
+// app/admin/page.tsx
+import { db } from "@/lib/db";
+import { site_settings } from "@/lib/db/src/schema/site";
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
 
 export default async function AdminPanel() {
-  // 1. Mevcut veriyi çek
   const settings = await db.query.site_settings.findFirst();
 
-  // 2. Güncelleme işlemi (Server Action)
-  async function updateSettings(formData: FormData) {
+  async function saveAction(formData: FormData) {
     "use server";
-    const title = formData.get("site_title") as string;
-    
-    await db.update(site_settings)
-      .set({ site_title: title })
-      .where(eq(site_settings.id, 1));
-      
-    revalidatePath("/admin"); // Sayfayı güncelle
+    const title = formData.get("title");
+    await db.update(site_settings).set({ site_title: title }).where(eq(site_settings.id, 1));
   }
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold">Cyber Base Yönetim Paneli</h1>
-      <form action={updateSettings} className="flex flex-col gap-4 mt-6">
-        <label>Site Başlığı:</label>
-        <input name="site_title" defaultValue={settings?.site_title} className="border p-2" />
-        <button type="submit" className="bg-blue-600 text-white p-2">Güncelle</button>
-      </form>
-    </div>
+    <form action={saveAction} className="p-10 space-y-4">
+      <h1 className="text-xl">Yönetici Paneli</h1>
+      <input name="title" defaultValue={settings?.site_title} className="border p-2" />
+      <button className="bg-black text-white p-2">Kaydet</button>
+    </form>
   );
 }
