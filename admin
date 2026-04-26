@@ -1,22 +1,32 @@
-// app/admin/page.tsx
 import { db } from "@/lib/db";
-import { site_settings } from "@/lib/db/src/schema/site";
+import { siteSettings } from "@/lib/db/src/schema/site";
 import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 
 export default async function AdminPanel() {
-  const settings = await db.query.site_settings.findFirst();
+  // Fetch settings from database
+  const settings = await db.query.siteSettings.findFirst();
 
-  async function saveAction(formData: FormData) {
+  // Server action to update settings
+  async function updateSettings(formData: FormData) {
     "use server";
-    const title = formData.get("title");
-    await db.update(site_settings).set({ site_title: title }).where(eq(site_settings.id, 1));
+    const newTitle = formData.get("siteTitle") as string;
+    
+    await db.update(siteSettings)
+      .set({ siteTitle: newTitle })
+      .where(eq(siteSettings.id, 1));
+      
+    revalidatePath("/admin");
   }
 
   return (
-    <form action={saveAction} className="p-10 space-y-4">
-      <h1 className="text-xl">Yönetici Paneli</h1>
-      <input name="title" defaultValue={settings?.site_title} className="border p-2" />
-      <button className="bg-black text-white p-2">Kaydet</button>
-    </form>
+    <div className="admin-container">
+      <h1>Admin Dashboard</h1>
+      <form action={updateSettings}>
+        <label>Site Title:</label>
+        <input name="siteTitle" defaultValue={settings?.siteTitle} />
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
   );
 }
