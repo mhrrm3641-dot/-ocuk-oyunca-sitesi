@@ -6,427 +6,298 @@
     <meta name="description" content="Global Cyber Base: Muharrem Gürlüyer liderliğinde küresel siber güvenlik ve yapay zeka platformu.">
     <title>GLOBAL CYBER BASE | GÜÇ VE VİZYON</title>
     
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7403038226629562" crossorigin="anonymous"></script>
 
     <style>
-        /* BEYAZ - KIRMIZI - MAVİ RENK PROTOKOLÜ */
+        /* GLOBAL RENK PROTOKOLÜ */
         :root {
             --ana-mavi: #0d6efd;
             --ana-kirmizi: #dc3545;
-            --arka-plan: #ffffff;
+            --arka-plan: #f4f7f6;
             --kart-bg: #ffffff;
-            --border-renk: #0d6efd;
-            --yazi-koyu: #333333;
-            --terminal-bg: #1e1e1e;
-            --terminal-yazi: #00ff00;
+            --yazi-koyu: #1a1a1a;
+            --terminal-bg: #121212;
+            --terminal-yazi: #00ff41;
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: var(--arka-plan);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: var(--ana-kirmizi);
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: var(--yazi-koyu);
         }
 
-        /* Arka Plan Izgara Efekti */
         .grid-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(13, 110, 253, 0.05) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(13, 110, 253, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(13, 110, 253, 0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(13, 110, 253, 0.03) 1px, transparent 1px);
+            background-size: 25px 25px;
             z-index: -1;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 1200px; margin: 0 auto; padding: 20px;
         }
 
-        /* Üst Başlık Vizyon Alanı */
-        .vizyon-header {
+        /* HEADER */
+        .header-panel {
             text-align: center;
-            border: 2px solid var(--border-renk);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: var(--kart-bg);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        
-        .vizyon-header h1 {
-            font-size: 24px;
-            margin: 0;
-            text-transform: uppercase;
+            border: 4px double var(--ana-mavi);
+            background: var(--kart-bg);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
-        /* Reklam Alanı Stili */
-        .reklam-alani {
-            margin: 20px 0;
-            text-align: center;
-            background-color: rgba(240, 247, 255, 0.5);
-            border: 1px dashed #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            overflow: hidden;
+        .header-panel h1 {
+            color: var(--ana-kirmizi);
+            margin: 0; font-size: 2.2rem; letter-spacing: 2px;
         }
 
-        /* 4'lü Modül Grid Yapısı */
+        /* MODÜLLER */
         .modul-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; margin-bottom: 30px;
         }
 
         .modul-kart {
-            border: 2px solid var(--border-renk);
+            background: var(--kart-bg);
+            border: 2px solid #eee;
+            border-top: 5px solid var(--ana-mavi);
             border-radius: 10px;
-            padding: 25px 15px;
+            padding: 25px;
             text-align: center;
-            background-color: var(--kart-bg);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            transition: 0.3s transform;
         }
 
         .modul-kart:hover {
             transform: translateY(-5px);
+            border-color: var(--ana-mavi);
         }
 
         .modul-ikon { font-size: 40px; margin-bottom: 15px; }
-        .modul-baslik { color: var(--ana-mavi); font-size: 20px; font-weight: bold; margin-bottom: 10px; }
-        .modul-aciklama { color: var(--yazi-koyu); font-size: 14px; margin-bottom: 20px; min-height: 45px; }
-        .modul-buton { background-color: var(--ana-mavi); color: white; border: none; padding: 10px 25px; border-radius: 5px; font-weight: bold; cursor: pointer; width: 80%; transition: background 0.3s; }
-        .modul-buton:hover { background-color: #0b5ed7; }
+        .modul-baslik { color: var(--ana-mavi); font-weight: bold; font-size: 20px; margin-bottom: 10px; }
+        
+        .modul-buton {
+            background: var(--ana-mavi); color: white; border: none;
+            padding: 10px 20px; border-radius: 5px; cursor: pointer;
+            font-weight: bold; width: 100%; margin-top: 15px;
+        }
 
-        /* Sistem Güncellemeleri ve Haberler Ortak Stil */
-        .bilgi-paneli {
-            border: 2px solid var(--border-renk);
+        .modul-buton:hover { background: var(--ana-kirmizi); }
+
+        /* TERMINAL */
+        .terminal-box {
+            background: var(--terminal-bg);
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 30px;
-            background-color: var(--kart-bg);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .bilgi-paneli h3 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
-        .guncelleme-item { border: 1px solid var(--border-renk); padding: 15px; border-radius: 5px; margin-bottom: 10px; }
-        .guncelleme-item strong { color: var(--ana-mavi); display: block; margin-bottom: 5px; }
-
-        /* Terminal Görünümü */
-        #terminal-kapsayici {
-            background-color: var(--terminal-bg);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 30px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+            border-left: 5px solid var(--ana-kirmizi);
         }
 
         #analiz-ekrani {
             color: var(--terminal-yazi);
             font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            margin: 0;
-            line-height: 1.5;
+            font-size: 14px; margin: 0; white-space: pre-wrap;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            border-top: 2px solid var(--ana-mavi);
-            margin-top: 20px;
-            color: var(--ana-mavi);
-            font-weight: bold;
+        /* HABERLER */
+        .haber-paneli {
+            background: white; border: 2px solid var(--ana-mavi);
+            border-radius: 10px; padding: 25px; margin-bottom: 30px;
         }
-        
-        footer a { color: var(--ana-mavi); text-decoration: none; margin: 0 10px; }
-        footer p { color: var(--ana-kirmizi); margin-top: 15px; }
+
+        .haber-paneli h3 { color: var(--ana-kirmizi); border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        .haber-item { padding: 15px 0; border-bottom: 1px dashed #ddd; }
+        .haber-item:last-child { border: none; }
+
+        /* ADMIN PANEL */
+        #admin-panel {
+            display: none; background: #fff1f1; border: 3px solid var(--ana-kirmizi);
+            padding: 20px; border-radius: 10px; margin-top: 20px;
+        }
+
+        .admin-input {
+            width: 100%; padding: 12px; margin-bottom: 10px;
+            border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center; padding: 40px 20px; border-top: 3px solid var(--ana-mavi);
+            margin-top: 40px; color: var(--ana-mavi);
+        }
+
+        .reklam-alani {
+            background: #f9f9f9; border: 1px dashed #bbb;
+            margin: 20px 0; min-height: 90px; display: flex; align-items: center; justify-content: center;
+        }
     </style>
 </head>
 <body>
+
     <div class="grid-bg"></div>
 
     <div class="container">
-        <div class="vizyon-header">
-            <h1>GLOBAL CYBER BASE | GÜÇ VE VİZYON</h1>
-        </div>
+        <!-- Başlık -->
+        <header class="header-panel">
+            <h1>GLOBAL CYBER BASE</h1>
+            <div style="font-weight: bold; color: var(--ana-mavi);">GÜÇ, VİZYON VE SİBER GÜVENLİK</div>
+        </header>
 
+        <!-- Reklam 1 -->
         <div class="reklam-alani">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7403038226629562"
-                 data-ad-slot="REKLAM_SLOT_KODUNUZU_BURAYA_YAZIN_1"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7403038226629562" data-ad-slot="SLOT_1" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
+        <!-- Modüller -->
         <div class="modul-grid">
             <div class="modul-kart">
                 <div class="modul-ikon">🛡️</div>
                 <div class="modul-baslik">Siber Savunma</div>
-                <div class="modul-aciklama">Ağ güvenliğini kırmızı alarm seviyesinde takip edin.</div>
+                <p>Kırmızı alarm seviyesinde ağ takibi.</p>
                 <button class="modul-buton">KONTROL ET</button>
             </div>
             <div class="modul-kart">
                 <div class="modul-ikon">🧠</div>
                 <div class="modul-baslik">Yapay Zeka</div>
-                <div class="modul-aciklama">Muharrem Gürlüyer AI motoru ile strateji geliştirin.</div>
-                <button class="modul-buton">MOTORU BAŞLAT</button>
+                <p>MG-AI Motoru ile veri analizi.</p>
+                <button class="modul-buton">BAŞLAT</button>
             </div>
             <div class="modul-kart">
                 <div class="modul-ikon">🚀</div>
                 <div class="modul-baslik">Hızlı Erişim</div>
-                <div class="modul-aciklama">Siber yollarda en hızlı veri transferini başlatın.</div>
-                <button class="modul-buton">HIZA BAĞLAN</button>
+                <p>Global veri yollarında yüksek hız.</p>
+                <button class="modul-buton">BAĞLAN</button>
             </div>
             <div class="modul-kart">
                 <div class="modul-ikon">🔐</div>
-                <div class="modul-baslik">Kripto Birimi</div>
-                <div class="modul-aciklama">Şifrelenmiş verileri kırmızı kod ile analiz edin.</div>
-                <button class="modul-buton">DEŞİFRE YAP</button>
+                <div class="modul-baslik">Kriptoloji</div>
+                <p>Askeri seviye deşifre modülü.</p>
+                <button class="modul-buton">ANALİZ</button>
             </div>
         </div>
 
-        <div class="bilgi-paneli">
-            <h3>📡 SİSTEM GÜNCELLEMELERİ</h3>
-            <div class="guncelleme-item">
-                <strong>Arayüz Güncellemesi Tamamlandı</strong>
-                <span style="color: var(--yazi-koyu)">Dikkati artırmak için Beyaz-Kırmızı-Mavi renk protokolüne geçiş yapıldı.</span>
-            </div>
-            <div class="guncelleme-item">
-                <strong>Güvenlik Protokolü v4.0</strong>
-                <span style="color: var(--yazi-koyu)">Muharrem Gürlüyer özel şifreleme katmanı tüm kutucuklara entegre edildi.</span>
-            </div>
+        <!-- Canlı Terminal -->
+        <div class="terminal-box">
+            <pre id="analiz-ekrani">Sistem protokolleri yükleniyor...</pre>
         </div>
 
-        <div class="bilgi-paneli">
-            <h3>📰 CYBER NEWS - GLOBAL YAYIN</h3>
-            <div id="haberler-alani" style="color: var(--yazi-koyu)"></div>
-        </div>
-
-        <div id="terminal-kapsayici">
-            <pre id="analiz-ekrani">Bağlantı kuruluyor... Lütfen bekleyin.</pre>
-        </div>
-
-        <div class="reklam-alani">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7403038226629562"
-                 data-ad-slot="REKLAM_SLOT_KODUNUZU_BURAYA_YAZIN_2"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <footer>
-            <div>
-                <a href="#">Ana Sayfa</a> | <a href="#">Projeler</a> | <a href="#">İletişim</a>
-            </div>
-            <p>MUHARREM GÜRLÜYER | DONANIM ANALİZ KURUCUSU</p>
-            <span style="font-size: 12px; color: var(--ana-mavi);">© 2026 muharremgurluyer.com.tr | Tüm Hakları Saklıdır</span>
-        </footer>
-    </div>
-
-    <script>
-        const siberHaberler = [
-            { "baslik": "Cyber Base Global Başladı", "tarih": "2026-04-27", "icerik": "Sistemimiz küresel yayına geçti. Tüm operasyonlar aktif." },
-            { "baslik": "Güvenlik Duvarı Güncellemesi", "tarih": "2026-04-26", "icerik": "Yeni nesil tehditlere karşı koruma kalkanları maksimize edildi." }
-        ];
-
-        function haberleriYukle() {
-            const haberAlan = document.getElementById('haberler-alani');
-            let htmlIcerik = '';
-            siberHaberler.forEach(haber => {
-                htmlIcerik += `
-                    <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #ccc;">
-                        <strong style="color: var(--ana-kirmizi); font-size: 16px;">${haber.baslik}</strong>
-                        <span style="font-size: 12px; color: #666; margin-left: 10px;">[${haber.tarih}]</span>
-                        <p style="margin: 5px 0 0 0; font-size: 14px;">${haber.icerik}</p>
-                    </div>
-                `;
-            });
-            haberAlan.innerHTML = htmlIcerik;
-        }
-
-        async function verileriEkranaBas() {
-            const ekran = document.getElementById('analiz-ekrani');
-            try {
-                const simulasyonVeri = { aselsan: "154.20", usd: "32.45", btc: "64200" };
-                const saat = new Date().toLocaleTimeString('tr-TR');
-                
-                ekran.innerHTML = `[Sistem Saati: ${saat}] Bağlantı başarılı.\nVeri aktarımı başlatıldı...\n\n`;
-                ekran.innerHTML += `> ASELSAN : ${simulasyonVeri.aselsan} TL\n`;
-                ekran.innerHTML += `> USD/TRY : ${simulasyonVeri.usd} TL\n`;
-                ekran.innerHTML += `> BTC     : ${simulasyonVeri.btc} USD\n\n`;
-                ekran.innerHTML += `[Durum] : Şifreleme aktif. Siber Üs güvende.`;
-            } catch (hata) {
-                ekran.innerHTML = `[HATA] Veri sunucusuna ulaşılamıyor.`;
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            haberleriYukle();
-            verileriEkranaBas();
-            setInterval(verileriEkranaBas, 30000);
-        });
-    </script>
-</body><!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Global Cyber Base: Muharrem Gürlüyer liderliğinde küresel siber güvenlik platformu.">
-    <title>GLOBAL CYBER BASE | YÖNETİM MERKEZİ</title>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7403038226629562" crossorigin="anonymous"></script>
-
-    <style>
-        :root {
-            --ana-mavi: #0d6efd;
-            --ana-kirmizi: #dc3545;
-            --arka-plan: #ffffff;
-            --kart-bg: #ffffff;
-            --border-renk: #0d6efd;
-            --yazi-koyu: #333333;
-            --terminal-bg: #1e1e1e;
-            --terminal-yazi: #00ff00;
-        }
-
-        body { margin: 0; padding: 0; background-color: var(--arka-plan); font-family: 'Segoe UI', sans-serif; color: var(--ana-kirmizi); line-height: 1.6; }
-        .grid-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(13, 110, 253, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(13, 110, 253, 0.05) 1px, transparent 1px); background-size: 20px 20px; z-index: -1; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        
-        .vizyon-header { text-align: center; border: 2px solid var(--border-renk); border-radius: 10px; padding: 20px; margin-bottom: 20px; background-color: var(--kart-bg); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .reklam-alani { margin: 20px 0; text-align: center; background-color: rgba(240, 247, 255, 0.5); border: 1px dashed #ccc; padding: 10px; border-radius: 5px; overflow: hidden; }
-
-        /* Modül Grid */
-        .modul-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .modul-kart { border: 2px solid var(--border-renk); border-radius: 10px; padding: 25px 15px; text-align: center; background-color: var(--kart-bg); transition: transform 0.3s; }
-        .modul-kart:hover { transform: translateY(-5px); }
-        .modul-ikon { font-size: 40px; margin-bottom: 15px; }
-        .modul-baslik { color: var(--ana-mavi); font-weight: bold; }
-        .modul-buton { background: var(--ana-mavi); color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-
-        /* Panel ve Terminal */
-        .bilgi-paneli { border: 2px solid var(--border-renk); border-radius: 10px; padding: 20px; margin-bottom: 30px; background: var(--kart-bg); }
-        #terminal-kapsayici { background: var(--terminal-bg); border-radius: 8px; padding: 15px; margin-bottom: 20px; }
-        #analiz-ekrani { color: var(--terminal-yazi); font-family: 'Courier New', monospace; white-space: pre-wrap; margin: 0; }
-
-        /* Admin Paneli Stili */
-        #admin-section { margin: 20px 0; padding: 20px; border: 3px solid var(--ana-kirmizi); border-radius: 10px; background: #fff1f1; display: none; }
-        .admin-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid var(--ana-mavi); box-sizing: border-box; }
-
-        footer { text-align: center; padding: 20px; border-top: 2px solid var(--ana-mavi); margin-top: 20px; }
-    </style>
-</head>
-<body>
-    <div class="grid-bg"></div>
-
-    <div class="container">
-        <div class="vizyon-header">
-            <h1>GLOBAL CYBER BASE | GÜÇ VE VİZYON</h1>
-        </div>
-
-        <div class="reklam-alani">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7403038226629562" data-ad-slot="SLOT_1" data-ad-format="auto"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
-        <div class="modul-grid">
-            <div class="modul-kart"><div class="modul-ikon">🛡️</div><div class="modul-baslik">Siber Savunma</div><p>Ağ güvenliği aktif.</p><button class="modul-buton">KONTROL ET</button></div>
-            <div class="modul-kart"><div class="modul-ikon">🧠</div><div class="modul-baslik">Yapay Zeka</div><p>AI motoru hazır.</p><button class="modul-buton">BAŞLAT</button></div>
-            <div class="modul-kart"><div class="modul-ikon">🚀</div><div class="modul-baslik">Hızlı Erişim</div><p>Veri yolu açık.</p><button class="modul-buton">BAĞLAN</button></div>
-            <div class="modul-kart"><div class="modul-ikon">🔐</div><div class="modul-baslik">Kripto Birimi</div><p>Deşifre modülü.</p><button class="modul-buton">ÇÖZÜMÜ AÇ</button></div>
-        </div>
-
-        <div class="bilgi-paneli">
-            <h3>📰 CYBER NEWS</h3>
+        <!-- Haberler -->
+        <div class="haber-paneli">
+            <h3>📡 CYBER NEWS GLOBAL</h3>
             <div id="haberler-alani"></div>
         </div>
 
-        <div id="terminal-kapsayici">
-            <pre id="analiz-ekrani">Sistem başlatılıyor...</pre>
+        <!-- Admin Girişi -->
+        <div style="text-align: center;">
+            <button onclick="adminGiris()" style="background:none; border:none; color:#ccc; cursor:pointer; font-size:10px;">[ YÖNETİCİ GİRİŞİ ]</button>
         </div>
 
-        <div id="admin-section">
-            <h2 style="text-align: center;">🛠 YÖNETİM MERKEZİ</h2>
-            <input type="text" id="news-title" class="admin-input" placeholder="Haber Başlığı">
-            <textarea id="news-content-input" class="admin-input" style="height: 80px;" placeholder="Haber İçeriği"></textarea>
-            <button onclick="yeniHaberEkle()" style="background: var(--ana-kirmizi); color: white; padding: 12px; width: 100%; border: none; cursor: pointer; font-weight: bold; margin-bottom: 10px;">YAYINLA</button>
-            <button onclick="adminPaneliKapat()" style="background: #333; color: white; padding: 12px; width: 100%; border: none; cursor: pointer;">KİLİTLE</button>
+        <div id="admin-panel">
+            <h3 style="color: var(--ana-kirmizi);">YÖNETİM MERKEZİ</h3>
+            <input type="text" id="haber-baslik" class="admin-input" placeholder="Haber Başlığı">
+            <textarea id="haber-icerik" class="admin-input" style="height:80px;" placeholder="Haber Detayı"></textarea>
+            <button onclick="haberPaylas()" style="background: var(--ana-kirmizi); color:white; border:none; padding:12px; width:100%; border-radius:5px; cursor:pointer; font-weight:bold;">YAYINLA</button>
+            <button onclick="adminKapat()" style="background:#333; color:white; border:none; padding:10px; width:100%; border-radius:5px; cursor:pointer; margin-top:10px;">PANELİ KİLİTLE</button>
         </div>
 
-        <div style="text-align: center; margin: 20px 0;">
-            <button id="admin-login-btn" onclick="adminGirisYap()" style="background: transparent; border: 1px solid #ccc; color: #ccc; font-size: 10px; cursor: pointer;">[ Yönetici Girişi ]</button>
+        <!-- Reklam 2 -->
+        <div class="reklam-alani">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7403038226629562" data-ad-slot="SLOT_2" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <footer>
-            <p>MUHARREM GÜRLÜYER | DONANIM ANALİZ</p>
-            <span style="font-size: 12px;">© 2026 Tüm Hakları Saklıdır</span>
+            <div style="margin-bottom: 20px;">
+                <a href="#" style="color:var(--ana-mavi); text-decoration:none; margin:0 10px;">ANA SAYFA</a> | 
+                <a href="#" style="color:var(--ana-mavi); text-decoration:none; margin:0 10px;">PROJELER</a> | 
+                <a href="#" style="color:var(--ana-mavi); text-decoration:none; margin:0 10px;">İLETİŞİM</a>
+            </div>
+            <strong style="color: var(--ana-kirmizi);">MUHARREM GÜRLÜYER | DONANIM ANALİZ KURUCUSU</strong>
+            <p style="font-size: 12px; color: #777; margin-top:10px;">© 2026 muharremgurluyer.com.tr | Tüm Hakları Saklıdır.</p>
         </footer>
     </div>
 
     <script>
-        const siberHaberler = [
-            { "baslik": "Global Siber Üs V4.1 Aktif", "tarih": "2026-04-27", "icerik": "Yönetim paneli entegrasyonu tamamlandı." }
+        // HABER YÖNETİMİ
+        let haberler = JSON.parse(localStorage.getItem('cyber_data')) || [
+            { baslik: "Global Cyber Base V4.1 Aktif", tarih: "27.04.2026", icerik: "Yeni nesil siber savunma protokolleri tüm dünyaya açıldı." },
+            { baslik: "AI Motoru Güncellendi", tarih: "26.04.2026", icerik: "Muharrem Gürlüyer AI motoru %40 daha hızlı analiz yeteneğine kavuştu." }
         ];
 
         function haberleriYukle() {
-            const haberAlan = document.getElementById('haberler-alani');
-            haberAlan.innerHTML = siberHaberler.map(h => `
-                <div style="margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
-                    <strong style="color: var(--ana-kirmizi);">${h.baslik}</strong> <small>[${h.tarih}]</small>
-                    <p style="margin: 5px 0 0 0; font-size: 14px; color: #333;">${h.icerik}</p>
+            const alan = document.getElementById('haberler-alani');
+            alan.innerHTML = haberler.map((h, i) => `
+                <div class="haber-item">
+                    <strong style="color:var(--ana-mavi); font-size:18px;">${h.baslik}</strong>
+                    <small style="color:#999; margin-left:10px;">[${h.tarih}]</small>
+                    <p style="margin:5px 0; color:#444;">${h.icerik}</p>
+                    ${i > 1 ? `<button onclick="haberSil(${i})" style="background:none; border:none; color:red; cursor:pointer; font-size:10px;">[Haberi Sil]</button>` : ''}
                 </div>
             `).join('');
         }
 
-        async function verileriEkranaBas() {
+        function haberPaylas() {
+            const b = document.getElementById('haber-baslik').value;
+            const i = document.getElementById('haber-icerik').value;
+            if(!b || !i) return alert("Boş alan bırakmayın!");
+
+            const yeni = { baslik: b, icerik: i, tarih: new Date().toLocaleDateString('tr-TR') };
+            haberler.unshift(yeni);
+            localStorage.setItem('cyber_data', JSON.stringify(haberler));
+            haberleriYukle();
+            document.getElementById('haber-baslik').value = "";
+            document.getElementById('haber-icerik').value = "";
+            alert("Haber başarıyla yayınlandı!");
+        }
+
+        function haberSil(index) {
+            if(confirm("Bu haberi kaldırmak istiyor musunuz?")) {
+                haberler.splice(index, 1);
+                localStorage.setItem('cyber_data', JSON.stringify(haberler));
+                haberleriYukle();
+            }
+        }
+
+        // ADMİN FONKSİYONLARI
+        function adminGiris() {
+            const sifre = prompt("Sistem Yetkilendirme Şifresi:");
+            if(sifre === "siber123") {
+                document.getElementById('admin-panel').style.display = 'block';
+                window.scrollTo(0, document.body.scrollHeight);
+            } else {
+                alert("Hatalı Giriş!");
+            }
+        }
+
+        function adminKapat() {
+            document.getElementById('admin-panel').style.display = 'none';
+        }
+
+        // TERMINAL SIMULASYONU
+        function terminalGuncelle() {
             const ekran = document.getElementById('analiz-ekrani');
             const saat = new Date().toLocaleTimeString('tr-TR');
-            ekran.innerHTML = `[${saat}] Veri Akışı Stabil.\n> ASELSAN: 154.20 TL\n> BTC: 64,200 USD\n[DURUM]: GÜVENLİ`;
+            const loglar = [
+                `[${saat}] >> Sistem Durumu: GÜVENLİ`,
+                `[${saat}] >> Aktif Şifreleme: 256-Bit AES`,
+                `[${saat}] >> ASELSAN Verisi: 154.20 TL (Güncel)`,
+                `[${saat}] >> BTC/USD: $64,200 | USD/TRY: 32.45`,
+                `[${saat}] >> Operasyon Merkezi: Muharrem Gürlüyer Aktif`
+            ];
+            ekran.innerHTML = loglar.join('\n');
         }
 
-        // --- ADIM 2: ADMİN FONKSİYONLARI ---
-        function adminGirisYap() {
-            const sifre = prompt("Sistem Şifresi:");
-            if (sifre === "siber123") {
-                document.getElementById('admin-section').style.display = 'block';
-                document.getElementById('admin-login-btn').style.display = 'none';
-            } else { alert("Erişim Reddedildi!"); }
-        }
-
-        function adminPaneliKapat() {
-            document.getElementById('admin-section').style.display = 'none';
-            document.getElementById('admin-login-btn').style.display = 'inline-block';
-        }
-
-        function yeniHaberEkle() {
-            const b = document.getElementById('news-title').value;
-            const i = document.getElementById('news-content-input').value;
-            if(!b || !i) return alert("Boş bırakma!");
-            
-            siberHaberler.unshift({ "baslik": b, "tarih": new Date().toLocaleDateString('tr-TR'), "icerik": i });
+        window.onload = () => {
             haberleriYukle();
-            document.getElementById('news-title').value = "";
-            document.getElementById('news-content-input').value = "";
-            alert("Haber Yayınlandı!");
-        }
-
-        window.onload = () => { haberleriYukle(); verileriEkranaBas(); setInterval(verileriEkranaBas, 30000); };
+            terminalGuncelle();
+            setInterval(terminalGuncelle, 5000);
+        };
     </script>
 </body>
-</html>
-
 </html>
