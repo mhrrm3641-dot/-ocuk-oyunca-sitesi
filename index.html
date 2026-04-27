@@ -249,6 +249,15 @@
     </style>
 </head>
 <body><div id="analiz-ekrani">Yükleniyor...</div>
+<div id="haber-paneli"></div>
+<script>
+  fetch('veri.json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('haber-paneli').innerHTML = 
+      `<h3>${data.haberler[0].baslik}</h3><p>${data.haberler[0].icerik}</p>`;
+    });
+</script>
 
     <div class="grid-bg"></div>
 <div id="haber-alani"></div>
