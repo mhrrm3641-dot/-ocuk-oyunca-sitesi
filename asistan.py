@@ -1,5 +1,14 @@
 import json
 import os
+import os
+import json
+
+# Önce değişiklikleri kaydet ve senkronize et
+os.system("git add .")
+os.system('git commit -m "Asistan: Otomatik Guncelleme"')
+os.system("git pull origin ana --rebase") 
+os.system("git push origin ana")
+print("Otomasyon tamamlandı!")
 
 def veriyi_guncelle(yeni_baslik, yeni_icerik):
     # 1. veri.json dosyasını güncelle
