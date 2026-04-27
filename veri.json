@@ -1,1 +1,12 @@
 {"THYAO.IS": 325.0, "ASELS.IS": 392.0, "USDTRY=X": 44.99, "BTC-USD": 77729.67}
+{
+  "haberler": [
+    {
+      "id": 1,
+      "baslik": "Cyber Base Global Başladı",
+      "tarih": "2026-04-27",
+      "gorsel": "/images/haber1.png",
+      "icerik": "Sistemimiz küresel yayına geçti."
+    }
+  ]
+}
