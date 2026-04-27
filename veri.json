@@ -8,3 +8,23 @@
     { "ad": "Siber Yarış", "link": "#" }
   ]
 }
+// Veri çekme fonksiyonu
+async function verileriGetir() {
+  const response = await fetch('veri.json');
+  const data = await response.json();
+  
+  // Haberleri bas
+  const haberKapsayici = document.getElementById('haber-alani');
+  haberKapsayici.innerHTML = data.haberler.map(h => `
+    <div style="border:1px solid #333; padding:10px; margin:5px; border-radius:5px;">
+      <h3>${h.baslik}</h3>
+      <p>${h.icerik}</p>
+    </div>
+  `).join('');
+
+  // Projeleri bas
+  const projeKapsayici = document.getElementById('proje-alani');
+  projeKapsayici.innerHTML = data.projeler.map(p => `
+    <a href="${p.link}" style="display:block; padding:10px; background:#222; margin:5px;">${p.ad}</a>
+  `).join('');
+}
