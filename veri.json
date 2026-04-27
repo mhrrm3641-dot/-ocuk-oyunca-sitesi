@@ -15,7 +15,7 @@
     { "baslik": "Cyber Base Başladı", "icerik": "Küresel yayındayız." }
   ]
 }
-const borsaUrl = "BURAYA_AZ_ÖNCE_KOPYALADIĞIN_RAW_LİNKİNİ_YAPIŞTIR";
+const borsaUrl ="https://raw.githubusercontent.com/mhrrm3641-dot/mhrrm3641-dot/ana/veri.json"
 
 async function verileriEkranaBas() {
   try {
