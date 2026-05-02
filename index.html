@@ -30,8 +30,20 @@
         .haber-item { padding: 15px 0; border-bottom: 1px dashed #ddd; }
         
         /* Yönetici Paneli Tasarımı */
-        #admin-panel { display: none; background: #fff1f1; border: 3px solid var(--kirmizi); padding: 20px; border-radius: 10px; margin-top: 20px; }
-        .admin-input { width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px; }
+        #admin-panel {
+            display: none;
+            background: #fff1f1;
+            border: 3px solid var(--kirmizi);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        #admin-panel.goster {
+            display: block;
+            opacity: 1;
+        }
 
         footer { text-align: center; padding: 40px; border-top: 3px solid var(--mavi); margin-top: 40px; }
     </style>
@@ -61,8 +73,7 @@
 
         <div class="haber-paneli">
             <h3 style="color: var(--kirmizi); border-bottom: 2px solid var(--kirmizi); padding-bottom: 10px;">📡 CYBER NEWS GLOBAL</h3>
-            <div id="haberler-alani">
-                </div>
+            <div id="haberler-alani"></div>
         </div>
 
         <div style="text-align:center; margin-top:20px;">
@@ -106,38 +117,4 @@
             let b = document.getElementById('haber-baslik').value;
             let i = document.getElementById('haber-icerik').value;
             if(!b || !i) return;
-            haberler.unshift({ baslik: b, icerik: i, tarih: new Date().toLocaleDateString('tr-TR') });
-            localStorage.setItem('cyber_data', JSON.stringify(haberler));
-            haberleriYukle();
-            document.getElementById('haber-baslik').value = "";
-            document.getElementById('haber-icerik').value = "";
-        }
-
-        function haberSil(i) {
-            haberler.splice(i, 1);
-            localStorage.setItem('cyber_data', JSON.stringify(haberler));
-            haberleriYukle();
-        }
-
-        function adminGiris() {
-            if(prompt("Yönetici Şifresi:") === "siber123") {
-                document.getElementById('admin-panel').style.display = 'block';
-                window.scrollTo(0,document.body.scrollHeight);
-            } else {
-                alert("Hatalı Şifre!");
-            }
-        }
-
-        function terminalGuncelle() {
-            let s = new Date().toLocaleTimeString();
-            document.getElementById('analiz-ekrani').textContent = `[${s}] >> SİSTEM: GÜVENLİ\n[${s}] >> MERKEZ: MUHARREM GÜRLÜYER\n[${s}] >> PROTOKOL: AES-256`;
-        }
-
-        window.onload = () => {
-            haberleriYukle();
-            terminalGuncelle();
-            setInterval(terminalGuncelle, 5000);
-        };
-    </script>
-</body>
-</html>
+            haberler.unshift({ baslik:
