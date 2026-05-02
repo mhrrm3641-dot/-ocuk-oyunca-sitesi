@@ -1,0 +1,14 @@
+# .github/dependabot.yml
+version: 2
+updates:
+  # 1. GitHub Actions güncellemelerini takip eder
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  # 2. Python (pip) kütüphanelerini takip eder
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
