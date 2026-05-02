@@ -3,53 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBAL CYBER BASE</title>
+    <title>GLOBAL CYBER BASE | Siber Savunma ve Analiz</title>
     
     <style>
-        /* Tasarımı esnek hale getiren ana CSS */
-        body { margin: 0; padding: 10px; font-family: sans-serif; }
-        .container { max-width: 100%; width: 100%; box-sizing: border-box; }
-        
-        /* Modüllerin mobil cihazda alt alta gelmesi için: */
+        /* Modern ve Temiz Temel Ayarlar */
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --terminal-bg: #000000;
+        }
+
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+
+        /* Başlık Alanı */
+        .vizyon-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .vizyon-header h1 {
+            margin: 0;
+            letter-spacing: 2px;
+            font-size: 2.5rem;
+        }
+
+        /* Grid Yapısı (Modüller) */
         .modul-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 15px; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 30px;
         }
-        
-        /* Terminalin ekran dışına taşmaması için: */
+
+        .modul-kart { 
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .modul-kart:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Haber Bölümü */
+        #cyber-news { 
+            background: var(--card-bg);
+            margin: 20px 0; 
+            border-radius: 10px;
+            padding: 20px; 
+            border: 1px solid #e2e8f0;
+        }
+
+        #news-content {
+            min-height: 50px;
+            color: #64748b;
+        }
+
+        /* Terminal - Siber Analiz Ekranı */
+        #terminal-kapsayici {
+            margin-top: 30px;
+        }
+
         #analiz-ekrani { 
-            background: #000; color: #0f0; padding: 10px; 
-            border-radius: 5px; overflow-x: auto; 
-            word-wrap: break-word; white-space: pre-wrap; 
+            background: var(--terminal-bg); 
+            color: #22c55e; /* Matrix Yeşili */
+            padding: 20px; 
+            border-radius: 8px; 
+            overflow-x: auto; 
+            word-wrap: break-word; 
+            white-space: pre-wrap; 
             max-width: 100%; 
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            border: 2px solid #334155;
+            box-shadow: inset 0 0 10px #000;
+        }
+
+        /* AdSense Dostu Bilgi Metni (SEO İçin) */
+        .seo-text {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #64748b;
+            text-align: center;
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 600px) {
+            .vizyon-header h1 { font-size: 1.8rem; }
+            .container { padding: 10px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="vizyon-header">
+        <header class="vizyon-header">
             <h1>GLOBAL CYBER BASE</h1>
-        </div>
+            <p>Geleceğin Güvenlik ve Analiz Portalı</p>
+        </header>
 
         <div class="modul-grid">
-            <div class="modul-kart">🛡️ Siber Savunma</div>
-            <div class="modul-kart">🧠 Yapay Zeka</div>
+            <div class="modul-kart">🛡️ Siber Savunma Analizi</div>
+            <div class="modul-kart">🧠 Yapay Zeka Entegrasyonu</div>
+            <div class="modul-kart">💻 Donanım Optimizasyonu</div>
         </div>
 
-        <section id="cyber-news" style="margin: 20px 0; border: 1px solid #ddd; padding: 10px;">
-            <h3>🌐 Cyber News</h3>
-            <div id="news-content"></div>
+        <section id="cyber-news">
+            <h3>🌐 Güncel Siber Haberler</h3>
+            <div id="news-content">Haber verileri yükleniyor, lütfen bekleyin...</div>
         </section>
 
         <div id="terminal-kapsayici">
-            <pre id="analiz-ekrani">// Sistem verileri bekleniyor...</pre>
+            <h4 style="margin-bottom: 10px;">📊 Sistem Analiz Terminali</h4>
+            <pre id="analiz-ekrani">// Global Siber Üs veri akışı başlatıldı...
+// İzmit/Kocaeli Node: Aktif
+// Sistem durumu: Taranıyor...</pre>
         </div>
+
+        <footer class="seo-text">
+            <p>&copy; 2026 Global Cyber Base. Tüm hakları saklıdır. <br>
+            Teknoloji analizi, siber güvenlik protokolleri ve donanım incelemeleri sunan profesyonel platform.</p>
+        </footer>
     </div>
 
     <script>
-        // Haberleri ve terminali burada çalıştır
+        /* ÖNEMLİ: Eğer içerik sürekli tekrar ediyorsa, 
+           buradaki JavaScript kodlarında ".innerHTML +=" yerine 
+           sadece ".innerHTML =" kullandığından emin ol.
+        */
     </script>
 </body>
 </html>
