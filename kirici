@@ -1,0 +1,18 @@
+import hashlib
+
+# "muharrem" kelimesinin SHA-256 hash karşılığı budur:
+hedef_hash = "6e52292f7f9035252b477f74880e669149430c5e324316972740a3311656885a"
+
+# Denenecek şifreler listesi
+sozluk = ["admin", "123456", "muharrem", "sifre123", "password"]
+
+for kelime in sozluk:
+    # Kelimeyi hashle (sha256)
+    deneme = hashlib.sha256(kelime.encode()).hexdigest()
+    
+    if deneme == hedef_hash:
+        print(f"BULDUM! Şifre şudur: {kelime}")
+        break
+else:
+    print("Sözlükte eşleşen bir şifre bulunamadı.")
+

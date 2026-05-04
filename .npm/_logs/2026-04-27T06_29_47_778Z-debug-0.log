@@ -1,0 +1,35 @@
+0 verbose cli /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/bin/npm
+1 info using npm@11.13.0
+2 info using node@v25.8.2
+3 silly config load:file:/data/data/com.termux/files/usr/lib/node_modules/npm/npmrc
+4 silly config load:file:/storage/emulated/0/Donan-m-Analiz-/.npmrc
+5 silly config load:file:/data/data/com.termux/files/home/.npmrc
+6 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
+7 verbose title npm init
+8 verbose argv "init" "--yes"
+9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2026-04-27T06_29_47_778Z-
+10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2026-04-27T06_29_47_778Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly package data {
+12 silly package data   name: 'donan-m-analiz-',
+12 silly package data   version: '1.0.0',
+12 silly package data   description: '',
+12 silly package data   main: 'index.js',
+12 silly package data   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+12 silly package data   repository: {
+12 silly package data     type: 'git',
+12 silly package data     url: 'git+https://github.com/mhrrm3641-dot/Donan-m-Analiz-.git'
+12 silly package data   },
+12 silly package data   keywords: [],
+12 silly package data   author: '',
+12 silly package data   license: 'ISC',
+12 silly package data   type: 'commonjs',
+12 silly package data   bugs: { url: 'https://github.com/mhrrm3641-dot/Donan-m-Analiz-/issues' },
+12 silly package data   homepage: 'https://github.com/mhrrm3641-dot/Donan-m-Analiz-#readme'
+12 silly package data }
+13 verbose cwd /storage/emulated/0/Donan-m-Analiz-
+14 verbose os Linux 5.15.180-android13-3-31996109
+15 verbose node v25.8.2
+16 verbose npm  v11.13.0
+17 verbose exit 0
+18 info ok

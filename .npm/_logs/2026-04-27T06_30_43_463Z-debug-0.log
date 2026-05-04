@@ -1,0 +1,22 @@
+0 verbose cli /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/bin/npm
+1 info using npm@11.13.0
+2 info using node@v25.8.2
+3 silly config load:file:/data/data/com.termux/files/usr/lib/node_modules/npm/npmrc
+4 silly config load:file:/storage/emulated/0/Donan-m-Analiz-/.npmrc
+5 silly config load:file:/data/data/com.termux/files/home/.npmrc
+6 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install"
+9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2026-04-27T06_30_43_463Z-
+10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2026-04-27T06_30_43_463Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:1174405120 maxSize:293601280 maxEntrySize:146800640
+13 silly idealTree buildDeps
+14 silly reify moves {}
+15 silly audit report null
+16 verbose cwd /storage/emulated/0/Donan-m-Analiz-
+17 verbose os Linux 5.15.180-android13-3-31996109
+18 verbose node v25.8.2
+19 verbose npm  v11.13.0
+20 verbose exit 0
+21 info ok

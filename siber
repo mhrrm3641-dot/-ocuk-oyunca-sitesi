@@ -1,0 +1,46 @@
+import os
+import time
+
+def siteyi_guncelle():
+    print("\n[!] Web sitesi güncelleniyor...")
+    # GitHub işlemlerini otomatiğe bağlar
+    os.system("git add .")
+    os.system('git commit -m "Asistan: Otomatik Sistem Güncellemesi"')
+    os.system("git push")
+    print("[+] Site canlıya alındı!")
+
+def sistem_bakim():
+    print("\n[*] Sistem taranıyor...")
+    # Gereksiz geçici dosyaları siler
+    os.system("rm -rf Gecici/*")
+    print("[+] Gereksiz dosyalar temizlendi.")
+
+def asistan_dongusu():
+    while True:
+        print("\n--- ASİSTAN AKTİF: SİTE VE SİSTEM İZLENİYOR ---")
+        print("1. Manuel Siteyi Güncelle (Push)")
+        print("2. Sistem Temizliği Yap")
+        print("3. Otomatik Modu Başlat (Her 1 saatte bir kontrol)")
+        print("0. Çıkış")
+        
+        secim = input("\nKomutunuz: ")
+        
+        if secim == "1":
+            siteyi_guncelle()
+        elif secim == "2":
+            sistem_bakim()
+        elif secim == "3":
+            print("[!] Otomatik mod aktif. Durdurmak için Ctrl+C yapın.")
+            try:
+                while True:
+                    sistem_bakim()
+                    siteyi_guncelle()
+                    print(f"[{time.strftime('%H:%M:%S')}] Güncelleme tamam. Bekleniyor...")
+                    time.sleep(3600) # 1 saat bekler
+            except KeyboardInterrupt:
+                print("\n[!] Otomatik mod durduruldu.")
+        elif secim == "0":
+            break
+
+if __name__ == "__main__":
+    asistan_dongusu()

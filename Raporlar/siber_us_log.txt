@@ -1,0 +1,6 @@
+Tue Apr 28 18:37:59 2026: [!] ALARM: 80 portu AÇILDI!
+Tue Apr 28 18:37:59 2026: [!] ALARM: 443 portu AÇILDI!
+Tue Apr 28 18:37:59 2026: [!] ALARM: 52869 portu AÇILDI!
+Fri May  1 01:28:10 2026: ALARM: Port 80 AÇILDI
+Fri May  1 01:28:10 2026: ALARM: Port 443 AÇILDI
+Fri May  1 01:28:10 2026: ALARM: Port 52869 AÇILDI

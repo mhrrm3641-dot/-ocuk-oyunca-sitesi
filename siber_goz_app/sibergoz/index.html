@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Siber Göz | V2.4</title>
+    <script src="tesseract.min.js"></script>
+    <style>
+        body { background: #000; color: #0f0; font-family: monospace; margin: 0; padding: 15px; display: flex; flex-direction: column; align-items: center; }
+        #lock { position: fixed; top:0; left:0; width: 100%; height: 100%; background: #000; z-index: 99; display: flex; justify-content: center; align-items: center; }
+        .terminal-box { border: 1px solid #0f0; padding: 20px; text-align: center; background: #001100; box-shadow: 0 0 15px #0f0; }
+        input { background: transparent; border: none; border-bottom: 1px solid #0f0; color: #0f0; outline: none; font-size: 18px; width: 100px; text-align: center; }
+        video { width: 100%; max-width: 400px; border: 1px solid #0f0; border-radius: 8px; margin-bottom: 10px; }
+        button { background: #0f0; color: #000; border: none; padding: 12px; width: 100%; max-width: 400px; font-weight: bold; cursor: pointer; margin-top: 10px; text-transform: uppercase; border-radius: 4px; }
+        textarea { width: 100%; max-width: 400px; background: #050505; color: #0f0; border: 1px solid #0f0; padding: 10px; margin-top: 10px; box-sizing: border-box; }
+        #logs { width: 100%; max-width: 400px; margin-top: 20px; border-top: 1px solid #0f0; padding-top: 10px; font-size: 12px; }
+        .log-line { border-bottom: 1px solid #020; padding: 5px 0; color: #8f8; }
+        .excel-btn { background: #0055ff !important; color: #fff !important; }
+    </style>
+</head>
+<body>
+
+<div id="lock">
+    <div class="terminal-box">
+        <div>[SECURE_LOGIN]</div>
+        <span>root@muharrem:~#</span>
+        <input type="password" id="pass" onkeypress="if(event.keyCode==13)check()">
+    </div>
+</div>
+
+<h2 style="color:#0f0; text-shadow: 0 0 5px #0f0;">SİBER GÖZ ANALİZ PANELİ</h2>
+<video id="vid" autoplay playsinline></video>
+<button onclick="start()">KAMERAYI BAŞLAT</button>
+<textarea id="inp" rows="2" placeholder="YAKALANAN VERİ..."></textarea>
+<button onclick="dec()" style="background:#040; color:#0f0;">VERİYİ DEŞİFRE ET VE KAYDET</button>
+<div id="out" style="margin-top:10px; font-weight:bold; color:#fff;"></div>
+
+<div id="logs">
+    <div style="color:#0f0; margin-bottom:10px;">[ARŞİVLENMİŞ LOGLAR]</div>
+    <div id="logList"></div>
+    <button onclick="exportExcel()" class="excel-btn">VERİLERİ EXCEL (CSV) OLARAK İNDİR</button>
+    <button onclick="clearLogs()" style="background:#300; color:#f55; font-size:10px;">LOGLARI TEMİZLE</button>
+</div>
+
+<script>
+    function check(){ if(document.getElementById('pass').value=='1923'){ document.getElementById('lock').style.display='none'; } else { alert("YETKİSİZ ERİŞİM!"); } }
+    
+    async function start(){
+        const v=document.getElementById('vid');
+        const s=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}});
+        v.srcObject=s;
+        setInterval(async()=>{
+            const c=document.createElement('canvas'); c.width=v.videoWidth; c.height=v.videoHeight;
+            c.getContext('2d').drawImage(v,0,0);
+            const {data:{text}}=await Tesseract.recognize(c.toDataURL(),'eng');
+            if(text.length > 3) document.getElementById('inp').value = text.trim();
+        },4000);
+    }
+
+    function dec(){ 
+        let raw = document.getElementById('inp').value.replace(/\s/g,'');
+        try {
+            let decoded = atob(raw);
+            document.getElementById('out').innerText = "ÇÖZÜLDÜ: " + decoded;
+            saveLog(raw, decoded);
+        } catch(e) { document.getElementById('out').innerText = "HATA: BASE64 DEĞİL"; }
+    }
+
+    function saveLog(r, d) {
+        let l = JSON.parse(localStorage.getItem('logs') || '[]');
+        l.unshift({t: new Date().toLocaleTimeString(), r: r, d: d});
+        localStorage.setItem('logs', JSON.stringify(l.slice(0, 20)));
+        render();
+    }
+
+    function render() {
+        let l = JSON.parse(localStorage.getItem('logs') || '[]');
+        document.getElementById('logList').innerHTML = l.map(x => `<div class="log-line"><span>[${x.t}]</span> ${x.d} <small style="color:#444">(${x.r})</small></div>`).join('');
+    }
+
+    function clearLogs() { localStorage.removeItem('logs'); render(); }
+
+    function exportExcel() {
+        let l = JSON.parse(localStorage.getItem('logs') || '[]');
+        if(l.length==0) return alert("Veri yok!");
+        let csv = "\uFEFFZaman,Ham Veri,Cozulmus Veri\n" + l.map(x => `${x.t},${x.r},${x.d}`).join("\n");
+        let blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "siber_goz_rapor.csv";
+        a.click();
+    }
+    render();
+</script>
+</body>
+</html>
+
